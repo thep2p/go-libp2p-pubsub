@@ -1334,7 +1334,7 @@ func (gs *GossipSubRouter) sendRPC(p peer.ID, out *RPC, urgent bool) {
 
 	q, ok := gs.p.peers[p]
 	if !ok {
-		return false
+		return
 	}
 
 	// If we're below the max message size, go ahead and send
@@ -1354,7 +1354,7 @@ func (gs *GossipSubRouter) sendRPC(p peer.ID, out *RPC, urgent bool) {
 		gs.doSendRPC(rpc, p, q, urgent)
 	}
 
-	return true
+	return
 }
 
 func (gs *GossipSubRouter) doDropRPC(rpc *RPC, p peer.ID, reason string) {
